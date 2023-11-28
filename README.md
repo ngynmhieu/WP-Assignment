@@ -4,7 +4,7 @@
 3. createTable.php
 4. insertTable.php (không chạy cũng được, thêm vào để kiểm tra có khớp kiểu dữ liệu không)
 
-# Đối với các dữ liệu dạng multiple data (như phone_number, experience, ...) thì đặt tên dạng array
+- Đối với các dữ liệu dạng multiple data (như phone_number, experience, ...) thì đặt tên dạng array
 Ví dụ:
 <form action="your_script.php" method="post">
   Phone number 1: <input type="text" name="phone_number[]"><br>
