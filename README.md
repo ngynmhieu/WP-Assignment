@@ -10,6 +10,9 @@ Ví dụ:
 name="phone_number[]"  
 Tham khảo thêm ở video này: https://www.youtube.com/watch?v=vvWetw5PvMw&t=881s&ab_channel=FundaOfWebIT
 
-## Cập nhật file cv_edit
+## Init file cv_edit
 Trường hợp người dùng chỉnh sửa dữ liệu có sẵn thì để action = "cv_edit.php" và method = "post".  
 Dữ liệu gửi về phải có user_id để có thể sử dụng "$_POST['user_id'] để truy cập database
+
+## Init file cv_create
+Chi can de action va method nhu edit
