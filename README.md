@@ -6,5 +6,5 @@
 
 Đối với các dữ liệu dạng multiple data (như phone_number, experience, ...) thì đặt tên dạng array
 Ví dụ:
- //<input type="text" name="phone_number[]">
+name="phone_number[]"
 Tham khảo thêm ở video này: https://www.youtube.com/watch?v=vvWetw5PvMw&t=881s&ab_channel=FundaOfWebIT
