@@ -6,10 +6,10 @@
 
 - Đối với các dữ liệu dạng multiple data (như phone_number, experience, ...) thì đặt tên dạng array
 Ví dụ:
-<form action="your_script.php" method="post">
+"<form action="your_script.php" method="post">
   Phone number 1: <input type="text" name="phone_number[]"><br>
   Phone number 2: <input type="text" name="phone_number[]"><br>
   Phone number 3: <input type="text" name="phone_number[]"><br>
   <input type="submit">
-</form>
+</form>"
 Tham khảo thêm ở video này: https://www.youtube.com/watch?v=vvWetw5PvMw&t=881s&ab_channel=FundaOfWebIT
