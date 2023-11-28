@@ -1,4 +1,4 @@
-# Chạy lần lượt các file sau để tạo TABLES trong DATABASE
+![image](https://github.com/ngynmhieu/WP-Assignment/assets/144605453/1ccccaaa-b87d-43e8-bb12-1d355eab24ca)# Chạy lần lượt các file sau để tạo TABLES trong DATABASE
 1. createDatabase.php
 2. DBconnection.php (kiểm tra kết nối được không)
 3. createTable.php
@@ -6,10 +6,5 @@
 
 - Đối với các dữ liệu dạng multiple data (như phone_number, experience, ...) thì đặt tên dạng array
 Ví dụ:
-"<form action="your_script.php" method="post">
-  Phone number 1: <input type="text" name="phone_number[]"><br>
-  Phone number 2: <input type="text" name="phone_number[]"><br>
-  Phone number 3: <input type="text" name="phone_number[]"><br>
-  <input type="submit">
-</form>"
+ //<input type="text" name="phone_number[]">
 Tham khảo thêm ở video này: https://www.youtube.com/watch?v=vvWetw5PvMw&t=881s&ab_channel=FundaOfWebIT
