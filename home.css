@@ -61,6 +61,26 @@ p, h2{
 .user img{
     height: 100%;
 }
+.dropdown{
+    display: none;
+    margin-top: 5px;
+    background-color: #f1f1f1;
+    font-size: 20px;
+    padding: 5px;
+}
+.dropdown a{
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    z-index: 1;
+}
+.dropdown a:hover{
+    background-color: #ddd;
+}
+.show{
+    display: flex;
+    flex-direction: column;
+}
 
 /* line cut between */
 .hr-body hr{
