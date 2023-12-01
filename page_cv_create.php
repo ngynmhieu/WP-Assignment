@@ -27,7 +27,7 @@
             <div class="hr-body">
                 <hr>
         </div>
-        <form name="create cv" action="/cv_create.php" method="post">
+        <form name="create cv" action="cv_create.php" method="post">
             <?php
                 require __DIR__ . "/form.php";
             ?>

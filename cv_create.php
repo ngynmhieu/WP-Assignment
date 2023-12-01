@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         mysqli_query($conn, $sql_insert); // execute sql insert
     }
     //insert table languages
-    $skills = $_POST['languages'];
+    $language = $_POST['languages'];
     foreach($languages as $language){ 
         $language_insert = $language;
         $sql_insert = "INSERT INTO user_languages (user_id, languages)

@@ -26,6 +26,6 @@ window.onclick = function(event) {
     }
     // create new form
     if (event.target.matches(".edit-button") || event.target.matches(".new-button") || event.target.matches(".add-button")){
-        window.location.href = "http://localhost:3000/page_cv_create.php";
+        window.location.replace("page_cv_create.php");
     }
 }
