@@ -1,0 +1,176 @@
+body{
+    font-size: 25px;
+    margin: 20px 100px;
+}
+
+img{
+    height: 100%;
+    pointer-events: none;
+}
+
+p, h2{
+    margin: 0;
+}
+
+/* top bar */
+.topbar{
+    height: 40px;
+    width: 100%;
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.left{
+    float: left;
+    height: 100%;
+}
+.text-logo{
+    float: right;
+    height: 100%;
+    display: flex;
+}
+.text-logo p{
+    align-self: flex-end;
+}
+
+.right{
+    width: 100px;
+    float: right;
+    height: 100%;
+    text-align: center;
+}
+.user{
+    background-color: white;
+    border: 0px;
+    height: 100%;
+}
+.user img{
+    height: 100%;
+}
+.dropdown{
+    display: none;
+    margin-top: 5px;
+    background-color: #f1f1f1;
+    font-size: 20px;
+    padding: 5px;
+}
+.dropdown a{
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    z-index: 1;
+}
+.dropdown a:hover{
+    background-color: #ddd;
+}
+.show{
+    display: flex;
+    flex-direction: column;
+}
+
+/* line cut between */
+.hr-body hr{
+    background-color: gray;
+    height: 2px;
+    width: 100%;
+    border-radius: 5px;
+    margin: 40px 0px;
+}
+
+/* main container */
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+/* headline */
+.headline{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.headline p{
+    float: left;
+}
+.new-button{
+    display: flex;
+    padding: 10px;
+    background-color: #2196f3;
+    color: white;
+    border-radius: 10px;
+    border-width: 0px;
+}
+.new-button img{
+    float: left;
+    margin-right: 10px;
+}
+.new-button p{
+    align-self: center;
+}
+/* line cut between */
+.hr-main{
+    width: 80%;
+}
+.hr-main hr{
+    background-color: lightskyblue;
+    height: 5px;
+    border-radius: 5px;
+    border-width: 0;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+/* resume place */
+.resume-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 80%;
+    font-size: 15px;
+    row-gap: 25px;
+}
+.resume{
+    overflow: hidden;
+    height: 300px;
+    width: 35%;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 10px;
+    position: relative;
+}
+.edit{
+    position: absolute;
+    right: 10px;
+}
+.delete{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.resume button{
+    background-color: white;
+    border: 0px;
+}
+.resume img{
+    height: 30px;
+}
+.add-resume{
+    display: flex;
+    height: 300px;
+    width: 35%;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.add-resume button{
+    background-color: white;
+    border: 0px;
+}
+.add-resume img{
+    height: 50px;
+}
