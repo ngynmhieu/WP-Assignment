@@ -1,5 +1,5 @@
 <?php
-
+print_r($_REQUEST);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     include ('DBconnection.php');
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $exp_descriptions = $_POST['exp_description'];
 
     foreach ($exp_jobs as $index=>$exp_job){
-        $job_insert= $exp_job;
+        $job_insert= $exp_job[$index];
         $startDay_insert = $exp_startDays[$index];
         $endDay_insert = $exp_endDays[$index];
         $description_insert = $exp_descriptions[$index];
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $edu_descriptions = $_POST['edu_description'];
     
     foreach($edu_schools as $index=>$edu_school){
-        $school_insert = $edu_school;
+        $school_insert = $edu_school[$index];
         $degree_insert = $edu_degrees[$index];
         $startDay_insert = $edu_startDays[$index];
         $endDay_insert = $edu_endDays[$index];
@@ -82,11 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $certi_names = $_POST['certi_name'];
     $certi_descriptions = $_POST['certi_description'];
     foreach ($certi_names as $index=>$certi_name){
-        $name_insert = $certi_name;
+        $name_insert = $certi_name[$index];
         $description_insert = $certi_descriptions[$index];
-
-        $sql_insert = "INSERT INTO user_education (user_id, certi_name,
-        certi_description)
+        $sql_insert = "INSERT INTO user_certification (user_id, certi_name, certi_description)
         VALUES ('$user_id', '$name_insert', '$description_insert')";
         mysqli_query($conn, $sql_insert); // execute sql insert
     }

@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col text-center">
-                            <img src="" alt="Profile Picture" id="profile_image" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
+                            <img src="image/user.png" alt="Profile Picture" id="profile_image" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
                         </div>
                     </div>
 
@@ -62,7 +62,12 @@
                             <input type="text" class="form-control" name="city" required>
                         </div>
                     </div>
-
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <label for="email">Email Address:</label>
+                            <input type="text" class="form-control" name="email" required>
+                        </div>
+                    </div>
                     <div class="form-row mb-3">
                         <div class="col">
                             <label for="address">Address:</label>
@@ -87,12 +92,8 @@
                     <!-- Initial Contact Fields -->
                     <div class="form-row mb-3">
                         <div class="col">
-                            <label for="user_phoneNumber">Phone Numbers:</label>
-                            <input type="text" class="form-control" name="user_phoneNumber[]" pattern="\d{10}" title="Please enter a 10-digit phone number" required>
-                        </div>
-                        <div class="col">
-                            <label for="email">Email:</label>
-                            <input type="text" class="form-control" name="email[]" required>
+                            <label for="phone_number">Phone Numbers:</label>
+                            <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" title="Please enter a 10-digit phone number" required>
                         </div>
                     </div>
 
@@ -100,12 +101,8 @@
                     <div class="additionalContactFields" style="display: none;">
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="user_phoneNumber">Additional Phone:</label>
-                                <input type="text" class="form-control" name="user_phoneNumber[]" pattern="\d{10}" title="Please enter a 10-digit phone number">
-                            </div>
-                            <div class="col">
-                                <label for="email">Additional Email:</label>
-                                <input type="text" class="form-control" name="email[]">
+                                <label for="phone_number">Additional Phone:</label>
+                                <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" title="Please enter a 10-digit phone number">
                             </div>
                         </div>
                     </div>
@@ -167,14 +164,14 @@
                         </div>
                         <div class="col">
                             <label for="exp_endDay">End Day:</label>
-                            <input type="date" class="form-control" name="exp_EndDay[]" required>
+                            <input type="date" class="form-control" name="exp_endDay[]" required>
                         </div>
                     </div>
 
                     <div class="form-row mb-3">
                         <div class="col">
-                            <label for="exp_summary">Personal Summary:</label>
-                            <textarea name="exp_summary[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" required></textarea>
+                            <label for="exp_description">Personal Description:</label>
+                            <textarea name="exp_description[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" required></textarea>
                         </div>
                     </div>
 
@@ -183,23 +180,23 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="exp_job">Job Title:</label>
-                                <input type="text" class="form-control" name="exp_job[]" required>
+                                <input type="text" class="form-control" name="exp_job[]">
                             </div>
                         </div>
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="exp_startDay">Start Day:</label>
-                                <input type="date" class="form-control" name="exp_startDay[]" required>
+                                <input type="date" class="form-control" name="exp_startDay[]">
                             </div>
                             <div class="col">
                                 <label for="exp_endDay">End Day:</label>
-                                <input type="date" class="form-control" name="exp_EndDay[]" required>
+                                <input type="date" class="form-control" name="exp_endDay[]">
                             </div>
                         </div>
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="exp_summary">Personal Summary:</label>
-                                <textarea name="exp_summary[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" required></textarea>
+                                <label for="exp_description">Personal Description:</label>
+                                <textarea name="exp_description[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200"></textarea>
                             </div>
                         </div>
                     </div>
@@ -243,14 +240,14 @@
                         </div>
                         <div class="col">
                             <label for="edu_endDay">End Day:</label>
-                            <input type="date" class="form-control" name="edu_EndDay[]" required>
+                            <input type="date" class="form-control" name="edu_endDay[]" required>
                         </div>
                     </div>
 
                     <div class="form-row mb-3">
                         <div class="col">
-                            <label for="edu_summary">Personal Summary:</label>
-                            <textarea name="edu_summary[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" required></textarea>
+                            <label for="edu_description">Personal Description:</label>
+                            <textarea name="edu_description[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" required></textarea>
                         </div>
                     </div>
 
@@ -259,27 +256,27 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="edu_school">School:</label>
-                                <input type="text" class="form-control" name="edu_school[]" required>
+                                <input type="text" class="form-control" name="edu_school[]">
                             </div>
                             <div class="col">
                                 <label for="edu_degree">Degree:</label>
-                                <input type="text" class="form-control" name="edu_degree[]" required>
+                                <input type="text" class="form-control" name="edu_degree[]">
                             </div>
                         </div>
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="edu_startDay">Start Day:</label>
-                                <input type="date" class="form-control" name="edu_startDay[]" required>
+                                <input type="date" class="form-control" name="edu_startDay[]">
                             </div>
                             <div class="col">
                                 <label for="edu_endDay">End Day:</label>
-                                <input type="date" class="form-control" name="edu_EndDay[]" required>
+                                <input type="date" class="form-control" name="edu_endDay[]">
                             </div>
                         </div>
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="edu_summary">Personal Summary:</label>
-                                <textarea name="edu_summary[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" required></textarea>
+                                <label for="edu_description">Personal Description:</label>
+                                <textarea name="edu_description[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200"></textarea>
                             </div>
                         </div>
                     </div>
@@ -321,11 +318,11 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="certi_name">Certification Name:</label>
-                                <input type="text" class="form-control" name="certi_name[]" required>
+                                <input type="text" class="form-control" name="certi_name[]">
                             </div>
                             <div class="col">
                                 <label for="certi_description">Certification Description:</label>
-                                <input type="text" class="form-control" name="certi_description[]" required>
+                                <input type="text" class="form-control" name="certi_description[]">
                             </div>
                         </div>
                     </div>
@@ -383,9 +380,35 @@
         </div>
     </div>
     <script>
+        window.onload =function(){
+            var inputEducationFields = document.querySelector('.additionalEducationFields').querySelectorAll('input, textarea');
+            var inputContactFields = document.querySelector('.additionalContactFields').querySelectorAll('input, textarea');
+            var inputExperienceFields = document.querySelector('.additionalExperienceFields').querySelectorAll('input, textarea');
+            var inputCertificationFields = document.querySelector('.additionalCertificationFields').querySelectorAll('input, textarea');
+            for (var i = 0; i < inputEducationFields.length; i++){
+                inputEducationFields[i].disabled = true;
+            }
+            for (var i = 0; i < inputContactFields.length; i++){
+                inputContactFields[i].disabled = true;
+            }
+            for (var i = 0; i < inputExperienceFields.length; i++){
+                inputExperienceFields[i].disabled = true;
+            }
+            for (var i = 0; i < inputCertificationFields.length; i++){
+                inputCertificationFields[i].disabled = true;
+            }
+        }
+    </script>
+    <script>
         function addEducationFields() {
             var additionalEducationFields = document.querySelector('.additionalEducationFields');
             var newEducationFields = additionalEducationFields.cloneNode(true);
+
+            inputEducationFields = newEducationFields.getElementsByTagName("input");
+            for (var i = 0; i < inputEducationFields.length; i++){
+                inputEducationFields[i].disabled = false;
+                inputEducationFields[i].required = true;
+            }
 
             // Reset values in the cloned fields
             newEducationFields.querySelectorAll('input, textarea').forEach(function (input) {
@@ -413,6 +436,11 @@
         var additionalContactFields = document.querySelector('.additionalContactFields');
         var newContactFields = additionalContactFields.cloneNode(true);
 
+        inputContactFields = newContactFields.getElementsByTagName("input");
+        for (var i = 0; i < inputContactFields.length; i++){
+            inputContactFields[i].disabled = false;
+            inputContactFields[i].required = true;
+        }
         // Reset values in the cloned fields
         newContactFields.querySelectorAll('input').forEach(function (input) {
             input.value = '';
@@ -439,6 +467,11 @@
             var additionalExperienceFields = document.querySelector('.additionalExperienceFields');
             var newExperienceFields = additionalExperienceFields.cloneNode(true);
 
+            inputExperienceFields = newExperienceFields.getElementsByTagName("input");
+            for (var i = 0; i < inputExperienceFields.length; i++){
+                inputExperienceFields[i].disabled = false;
+                inputExperienceFields[i].required = true;
+            }
             // Reset values in the cloned fields
             newExperienceFields.querySelectorAll('input, textarea').forEach(function (input) {
                 input.value = '';
@@ -465,6 +498,11 @@
             var additionalCertificationFields = document.querySelector('.additionalCertificationFields');
             var newCertificationFields = additionalCertificationFields.cloneNode(true);
 
+            inputCertificationFields = newCertificationFields.getElementsByTagName("input");
+            for (var i = 0; i < inputCertificationFields.length; i++){
+                inputCertificationFields[i].disabled = false;
+                inputCertificationFields[i].required = true;
+            }
             // Reset values in the cloned fields
             newCertificationFields.querySelectorAll('input').forEach(function (input) {
                 input.value = '';
