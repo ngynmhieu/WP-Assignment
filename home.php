@@ -1,7 +1,12 @@
 <!-- take login name sent from login_processing.php -->
 <!-- unfinished -->
 <?php
-    $name = "log01";
+    if (isset($_GET["name"])){
+        $name = strval($_GET["name"]);
+    }
+    else{
+        $name = "resume";
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +40,7 @@
     </div>
     <div class="main-container">
         <div class="headline">
-            <h2><?php echo "$name"?></h2>
+            <h2><?php echo $name?></h2>
             <button class="new-button">
                 <img src="image/plus.png" alt="new sign">
                 <p>Create new</p>

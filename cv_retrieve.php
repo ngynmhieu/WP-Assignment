@@ -4,10 +4,13 @@
     if ($_SERVER["REQUEST_METHOD"]== "GET"){
         include "DBconnection.php";
         $_username = $_GET["login_username"]; 
-        $sql = "SELECT * FROM user_login WHERE login_username = '$_username'";
+        $sql = "SELECT * FROM user_login WHERE login_username = '$_username' AND user_id IS NOT NULL";
         $result = $conn->query($sql);
         $ids = [];
         $shows = [];
+        if ($result->num_rows == 0){
+            return;
+        }
         while($row = $result->fetch_assoc()){
             $ids[] = $row["user_id"];
         }
