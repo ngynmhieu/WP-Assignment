@@ -7,408 +7,463 @@
     <title>CV Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+<style>
+    #fileInput {
+        display: none;
+    }
 
-<body style="background-color: rgb(243, 237, 237);">
+    #fileInputLabel {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+<body style="background-color: #f0f0f0;">
     <div class="container mt-3">
-        <div class="row">
+        <div style="background-color: #f0f0f0;">
 
-            <!-- Personal Details -->
-            <div class="card mt-3">
-                <div class="card-header bg-dark text-white">
-                    Personal Details
-                </div>
+            <form action="insertTable.php" method="post">
 
-                <div class="card-body">
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="wanted_job">Wanted Job Title:</label>
-                            <input type="text" class="form-control" name="wanted_job" placeholder="e.g Teacher" required>
-                        </div>
-                        <div class="col">
-                            <label for="upload_photo">Profile Picture:</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="upload_photo" name="upload_photo" accept="image/*" required>
-                                    <label class="custom-file-label" for="upload_photo">Choose file</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" id="upload_link">Upload</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-                            <img src="image/user.png" alt="Profile Picture" id="profile_image" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
-                        </div>
+                <!-- Personal Details -->
+                <div class="card mt-3">
+                    <div class="card-header background-color: #f0f0f0;">
+                        Personal Details
                     </div>
 
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="first_name">First Name:</label>
-                            <input type="text" class="form-control" name="first_name" required>
-                        </div>
-                        <div class="col">
-                            <label for="last_name">Last Name:</label>
-                            <input type="text" class="form-control" name="last_name" required>
-                        </div>
-                    </div>
+                    <div class="card-body">
 
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="country">Country:</label>
-                            <input type="text" class="form-control" name="country" required>
-                        </div>
-                        <div class="col">
-                            <label for="city">City:</label>
-                            <input type="text" class="form-control" name="city" required>
-                        </div>
-                    </div>
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="email">Email Address:</label>
-                            <input type="text" class="form-control" name="email" required>
-                        </div>
-                    </div>
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="address">Address:</label>
-                            <input type="text" class="form-control" name="address" required>
-                        </div>
-                        <div class="col">
-                            <label for="date_of_birth">Date Of Birth:</label>
-                            <input type="date" class="form-control" name="date_of_birth" required>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Details -->
-            <div class="card mt-3">
-                <div class="card-header bg-dark text-white">
-                    Contact Details
-                </div>
-                
-                <div class="card-body">
-
-                    <!-- Initial Contact Fields -->
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="phone_number">Phone Numbers:</label>
-                            <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" title="Please enter a 10-digit phone number" required>
-                        </div>
-                    </div>
-
-                    <!-- Additional Contact Fields (Hidden by default) -->
-                    <div class="additionalContactFields" style="display: none;">
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="phone_number">Additional Phone:</label>
-                                <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" title="Please enter a 10-digit phone number">
+                                <label for="wanted_job">Wanted Job Title:</label>
+                                <input type="text" class="form-control" name="wanted_job" placeholder="e.g Teacher" required>
+                            </div>
+                            <div class="col text-center">
+                                <label id="fileInputLabel" for="fileInput" class="btn btn-primary">Choose File</label>
+                                <input type="file" id="fileInput" class="form-control-file" name="upload_photo" accept="image/*" onchange="displayImage(this)">
+                                <div class="mt-2" id="imageContainer">
+                                    <img src="no_profile.jpg" alt="Temporary Profile Photo" id="upload_photo" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Add/Remove Buttons -->
-                    <div class="form-row">
-                        <div class="col">
-                            <button type="button" class="btn btn-danger" onclick="removeContactFields(this)">Remove</button>
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <label for="first_name">First Name:</label>
+                                <input type="text" class="form-control" name="first_name" required>
+                            </div>
+                            <div class="col">
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" class="form-control" name="last_name" required>
+                            </div>
                         </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary" onclick="addContactFields()">Add More Contacts</button>
+
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <label for="country">Country:</label>
+                                <input type="text" class="form-control" name="country" required>
+                            </div>
+                            <div class="col">
+                                <label for="city">City:</label>
+                                <input type="text" class="form-control" name="city" required>
+                            </div>
                         </div>
+
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <label for="address">Address:</label>
+                                <input type="text" class="form-control" name="address" required>
+                            </div>
+                            <div class="col">
+                                <label for="date_of_birth">Date Of Birth:</label>
+                                <input type="date" class="form-control" name="date_of_birth" required>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            
-            <!-- Personal Summary/Profile -->
-            <div class="card mt-3">
-                <div class="card-header bg-dark text-white">
-                    Profile
+
+                <!-- Contact Details -->
+                <div class="card mt-3">
+                    <div class="card-header background-color: #f0f0f0;">
+                        Contact Details
+                    </div>
+                    
+                    <div class="card-body">
+
+                        <!-- Initial Contact Fields -->
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <label for="user_phoneNumber">Phone Numbers:</label>
+                                <input type="text" class="form-control" name="user_phoneNumber[]" pattern="\d{10}" title="Please enter a 10-digit phone number" required>
+                            </div>
+                            <div class="col">
+                                <label for="email">Email:</label>
+                                <input type="text" class="form-control" name="email[]" required>
+                            </div>
+                        </div>
+
+                        <!-- Additional Contact Fields (Hidden by default) -->
+                        <div class="additionalContactFields" style="display: none;">
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="user_phoneNumber">Additional Phone:</label>
+                                    <input type="text" class="form-control" name="user_phoneNumber[]" pattern="\d{10}" title="Please enter a 10-digit phone number">
+                                </div>
+                                <div class="col">
+                                    <label for="email">Additional Email:</label>
+                                    <input type="text" class="form-control" name="email[]">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add/Remove Buttons -->
+                        <div class="form-row">
+                            <div class="col">
+                                <button type="button" class="btn btn-danger" onclick="removeContactFields(this)">Remove</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" onclick="addContactFields()">Add More Contacts</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="card-body">
-
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <small>Write 2-4 short & energetic sentences to interest the leader! Mention your role, experience & most importantly - your biggest achievements, best qualities, and skills.</small>
-                        </div>
+                
+                <!-- Personal Summary/Profile -->
+                <div class="card mt-3">
+                    <div class="card-header background-color: #f0f0f0;">
+                        Profile
                     </div>
 
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="profile">Personal Summary:</label>
-                            <textarea name="profile" placeholder="e.g Passionate science teacher with 8+ years of experience and a track record of ..." class="form-control" maxlength="200" required></textarea>
-                        </div>
-                    </div>
+                    <div class="card-body">
 
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <small>Write 2-4 short & energetic sentences to interest the leader! Mention your role, experience & most importantly - your biggest achievements, best qualities, and skills.</small>
+                            </div>
+                        </div>
+
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <label for="profile">Personal Summary:</label>
+                                <textarea name="profile" placeholder="e.g Passionate science teacher with 8+ years of experience and a track record of ..." class="form-control" maxlength="200" required></textarea>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
 
-            <!-- Experience -->
-            <div class="card mt-3">
-                <div class="card-header bg-dark text-white">
-                    Experience
-                </div>
-                <div class="card-body">
-
-                    <!-- Initial Experience Fields -->
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="exp_job">Job Title:</label>
-                            <input type="text" class="form-control" name="exp_job[]" required>
-                        </div>
+                <!-- Experience -->
+                <div class="card mt-3">
+                    <div class="card-header background-color: #f0f0f0;">
+                        Experience
                     </div>
 
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="exp_startDay">Start Day:</label>
-                            <input type="date" class="form-control" name="exp_startDay[]" required>
-                        </div>
-                        <div class="col">
-                            <label for="exp_endDay">End Day:</label>
-                            <input type="date" class="form-control" name="exp_endDay[]" required>
-                        </div>
-                    </div>
+                    <div class="card-body">
 
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="exp_description">Personal Description:</label>
-                            <textarea name="exp_description[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" required></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Additional Experience Fields (Hidden by default) -->
-                    <div class="additionalExperienceFields" style="display: none;">
+                        <!-- Initial Experience Fields -->
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="exp_job">Job Title:</label>
-                                <input type="text" class="form-control" name="exp_job[]">
+                                <input type="text" class="form-control" name="exp_job[]" required>
                             </div>
                         </div>
+
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="exp_startDay">Start Day:</label>
-                                <input type="date" class="form-control" name="exp_startDay[]">
+                                <input type="date" class="form-control" name="exp_startDay[]" required>
                             </div>
                             <div class="col">
                                 <label for="exp_endDay">End Day:</label>
-                                <input type="date" class="form-control" name="exp_endDay[]">
+                                <input type="date" class="form-control" name="exp_EndDay[]" required>
                             </div>
                         </div>
+
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="exp_description">Personal Description:</label>
-                                <textarea name="exp_description[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200"></textarea>
+                                <label for="exp_summary">Personal Summary:</label>
+                                <textarea name="exp_summary[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" required></textarea>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Add/Remove Buttons -->
-                    <div class="form-row">
-                        <div class="col">
-                            <button type="button" class="btn btn-danger" onclick="removeExperienceFields(this)">Remove</button>
+                        <!-- Additional Experience Fields (Hidden by default) -->
+                        <div class="additionalExperienceFields" style="display: none;">
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="exp_job">Job Title:</label>
+                                    <input type="text" class="form-control" name="exp_job[]" required>
+                                </div>
+                            </div>
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="exp_startDay">Start Day:</label>
+                                    <input type="date" class="form-control" name="exp_startDay[]" required>
+                                </div>
+                                <div class="col">
+                                    <label for="exp_endDay">End Day:</label>
+                                    <input type="date" class="form-control" name="exp_EndDay[]" required>
+                                </div>
+                            </div>
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="exp_summary">Personal Summary:</label>
+                                    <textarea name="exp_summary[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" required></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary" onclick="addExperienceFields()">Add More Experiences</button>
-                        </div>
-                    </div>
 
+                        <!-- Add/Remove Buttons -->
+                        <div class="form-row">
+                            <div class="col">
+                                <button type="button" class="btn btn-danger" onclick="removeExperienceFields(this)">Remove</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" onclick="addExperienceFields()">Add More Experiences</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
 
-            <!-- Education -->
-            <div class="card mt-3">
-                <div class="card-header bg-dark text-white">
-                    Education
-                </div>
-                <div class="card-body">
-
-                    <!-- Initial Education Fields -->
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="edu_school">School:</label>
-                            <input type="text" class="form-control" name="edu_school[]" required>
-                        </div>
-                        <div class="col">
-                            <label for="edu_degree">Degree:</label>
-                            <input type="text" class="form-control" name="edu_degree[]" required>
-                        </div>
+                <!-- Education -->
+                <div class="card mt-3">
+                    <div class="card-header background-color: #f0f0f0;">
+                        Education
                     </div>
+                    <div class="card-body">
 
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="edu_startDay">Start Day:</label>
-                            <input type="date" class="form-control" name="edu_startDay[]" required>
-                        </div>
-                        <div class="col">
-                            <label for="edu_endDay">End Day:</label>
-                            <input type="date" class="form-control" name="edu_endDay[]" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="edu_description">Personal Description:</label>
-                            <textarea name="edu_description[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" required></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Additional Education Fields (Hidden by default) -->
-                    <div class="additionalEducationFields" style="display: none;">
+                        <!-- Initial Education Fields -->
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="edu_school">School:</label>
-                                <input type="text" class="form-control" name="edu_school[]">
+                                <input type="text" class="form-control" name="edu_school[]" required>
                             </div>
                             <div class="col">
                                 <label for="edu_degree">Degree:</label>
-                                <input type="text" class="form-control" name="edu_degree[]">
+                                <input type="text" class="form-control" name="edu_degree[]" required>
                             </div>
                         </div>
+
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="edu_startDay">Start Day:</label>
-                                <input type="date" class="form-control" name="edu_startDay[]">
+                                <input type="date" class="form-control" name="edu_startDay[]" required>
                             </div>
                             <div class="col">
                                 <label for="edu_endDay">End Day:</label>
-                                <input type="date" class="form-control" name="edu_endDay[]">
+                                <input type="date" class="form-control" name="edu_EndDay[]" required>
                             </div>
                         </div>
+
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="edu_description">Personal Description:</label>
-                                <textarea name="edu_description[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200"></textarea>
+                                <label for="edu_summary">Personal Summary:</label>
+                                <textarea name="edu_summary[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" required></textarea>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Add/Remove Buttons -->
-                    <div class="form-row">
-                        <div class="col">
-                            <button type="button" class="btn btn-danger" onclick="removeEducationFields(this)">Remove</button>
+                        <!-- Additional Education Fields (Hidden by default) -->
+                        <div class="additionalEducationFields" style="display: none;">
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="edu_school">School:</label>
+                                    <input type="text" class="form-control" name="edu_school[]" required>
+                                </div>
+                                <div class="col">
+                                    <label for="edu_degree">Degree:</label>
+                                    <input type="text" class="form-control" name="edu_degree[]" required>
+                                </div>
+                            </div>
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="edu_startDay">Start Day:</label>
+                                    <input type="date" class="form-control" name="edu_startDay[]" required>
+                                </div>
+                                <div class="col">
+                                    <label for="edu_endDay">End Day:</label>
+                                    <input type="date" class="form-control" name="edu_EndDay[]" required>
+                                </div>
+                            </div>
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="edu_summary">Personal Summary:</label>
+                                    <textarea name="edu_summary[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" required></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary" onclick="addEducationFields()">Add More Educations</button>
-                        </div>
-                    </div>
 
+                        <!-- Add/Remove Buttons -->
+                        <div class="form-row">
+                            <div class="col">
+                                <button type="button" class="btn btn-danger" onclick="removeEducationFields(this)">Remove</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" onclick="addEducationFields()">Add More Educations</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
 
-            <!-- Certification -->
-            <div class="card mt-3">
-                <div class="card-header bg-dark text-white">
-                    Certification
-                </div>
-                <div class="card-body">
-
-                    <!-- Initial Certification Fields -->
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="certi_name">Certification Name:</label>
-                            <input type="text" class="form-control" name="certi_name[]" required>
-                        </div>
-                        <div class="col">
-                            <label for="certi_description">Certification Description:</label>
-                            <input type="text" class="form-control" name="certi_description[]" required>
-                        </div>
+                <!-- Certification -->
+                <div class="card mt-3">
+                    <div class="card-header background-color: #f0f0f0;">
+                        Certification
                     </div>
+                    <div class="card-body">
 
-                    <!-- Additional Certification Fields (Hidden by default) -->
-                    <div class="additionalCertificationFields" style="display: none;">
+                        <!-- Initial Certification Fields -->
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="certi_name">Certification Name:</label>
-                                <input type="text" class="form-control" name="certi_name[]">
+                                <input type="text" class="form-control" name="certi_name[]" required>
                             </div>
                             <div class="col">
                                 <label for="certi_description">Certification Description:</label>
-                                <input type="text" class="form-control" name="certi_description[]">
+                                <input type="text" class="form-control" name="certi_description[]" required>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Add/Remove Buttons -->
-                    <div class="form-row">
-                        <div class="col">
-                            <button type="button" class="btn btn-danger" onclick="removeCertificationFields(this)">Remove</button>
+                        <!-- Additional Certification Fields (Hidden by default) -->
+                        <div class="additionalCertificationFields" style="display: none;">
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="certi_name">Certification Name:</label>
+                                    <input type="text" class="form-control" name="certi_name[]" required>
+                                </div>
+                                <div class="col">
+                                    <label for="certi_description">Certification Description:</label>
+                                    <input type="text" class="form-control" name="certi_description[]" required>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary" onclick="addCertificationFields()">Add More Certifications</button>
+
+                        <!-- Add/Remove Buttons -->
+                        <div class="form-row">
+                            <div class="col">
+                                <button type="button" class="btn btn-danger" onclick="removeCertificationFields(this)">Remove</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" onclick="addCertificationFields()">Add More Certifications</button>
+                            </div>
                         </div>
+
                     </div>
-
                 </div>
-            </div>
 
-            <!-- Skill -->
-            <div class="card mt-3">
-                <div class="card-header bg-dark text-white">
-                    Skill
-                </div>
-                <div class="card-body">
+                <!-- Skill -->
+                <div class="card mt-3">
+                    <div class="card-header background-color: #f0f0f0;">
+                        Skill
+                    </div>
+                    <div class="card-body">
 
-                    <!-- Skill Fields -->
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="user_skill">Personal Skill (optional):</label>
-                            <textarea name="user_skill" maxlength="200" class="form-control" required></textarea>
+                        <!-- Skill Fields -->
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <label for="user_skill">Personal Skill (optional):</label>
+                                <input type="text" class="form-control" name="user_skill[]" required>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-            </div>
-
-            <!-- Languages -->
-            <div class="card mt-3">
-                <div class="card-header bg-dark text-white">
-                    Languages
-                </div>
-                <div class="card-body">
-
-                    <!-- Languages Fields -->
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <label for="user_languages">Languages (optional):</label>
-                            <textarea name="user_languages" class="form-control" required></textarea>
+                        <!-- Additional Skill Fields -->
+                        <div class="additionalSkillFields" style="display: none;">
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="user_skill">Personal Skill (optional):</label>
+                                    <input type="text" class="form-control" name="user_skill[]" required>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Add/Remove Buttons for Skill -->
+                        <div class="form-row">
+                            <div class="col">
+                                <button type="button" class="btn btn-danger" onclick="removeSkillFields(this)">Remove</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" onclick="addSkillFields()">Add More Skills</button>
+                            </div>
+                        </div>
+
                     </div>
-
                 </div>
-            </div>
-            
 
+                <!-- Languages -->
+                <div class="card mt-3">
+                    <div class="card-header background-color: #f0f0f0;">
+                        Languages
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Languages Fields -->
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <label for="user_languages">Languages (optional):</label>
+                                <input type="text" class="form-control" name="user_languages[]" required>
+                            </div>
+                        </div>
+
+                        
+                        <!-- Additional Languages Fields -->
+                        <div class="additionalLanguagesFields" style="display: none;">
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                <label for="user_languages">Languages (optional):</label>
+                                <input type="text" class="form-control" name="user_languages[]" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add/Remove Buttons for Languages -->
+                        <div class="form-row">
+                            <div class="col">
+                                <button type="button" class="btn btn-danger" onclick="removeLanguagesFields(this)">Remove</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary" onclick="addLanguagesFields()">Add More Languages</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-row mt-3">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+
+            </form>
         </div>
     </div>
+
     <script>
-        window.onload =function(){
-            var inputEducationFields = document.querySelector('.additionalEducationFields').querySelectorAll('input, textarea');
-            var inputContactFields = document.querySelector('.additionalContactFields').querySelectorAll('input, textarea');
-            var inputExperienceFields = document.querySelector('.additionalExperienceFields').querySelectorAll('input, textarea');
-            var inputCertificationFields = document.querySelector('.additionalCertificationFields').querySelectorAll('input, textarea');
-            for (var i = 0; i < inputEducationFields.length; i++){
-                inputEducationFields[i].disabled = true;
-            }
-            for (var i = 0; i < inputContactFields.length; i++){
-                inputContactFields[i].disabled = true;
-            }
-            for (var i = 0; i < inputExperienceFields.length; i++){
-                inputExperienceFields[i].disabled = true;
-            }
-            for (var i = 0; i < inputCertificationFields.length; i++){
-                inputCertificationFields[i].disabled = true;
-            }
+        function displayImage(input) {
+            var fileInput = input;
+            var imgElement = document.getElementById('upload_photo');
+            var containerElement = document.getElementById('imageContainer');
+            var labelElement = document.getElementById('fileInputLabel');
+
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                imgElement.src = e.target.result;
+                containerElement.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+            labelElement.innerText = 'Change File';
         }
     </script>
+
     <script>
         function addEducationFields() {
             var additionalEducationFields = document.querySelector('.additionalEducationFields');
             var newEducationFields = additionalEducationFields.cloneNode(true);
-
-            inputEducationFields = newEducationFields.getElementsByTagName("input");
-            for (var i = 0; i < inputEducationFields.length; i++){
-                inputEducationFields[i].disabled = false;
-                inputEducationFields[i].required = true;
-            }
 
             // Reset values in the cloned fields
             newEducationFields.querySelectorAll('input, textarea').forEach(function (input) {
@@ -436,11 +491,6 @@
         var additionalContactFields = document.querySelector('.additionalContactFields');
         var newContactFields = additionalContactFields.cloneNode(true);
 
-        inputContactFields = newContactFields.getElementsByTagName("input");
-        for (var i = 0; i < inputContactFields.length; i++){
-            inputContactFields[i].disabled = false;
-            inputContactFields[i].required = true;
-        }
         // Reset values in the cloned fields
         newContactFields.querySelectorAll('input').forEach(function (input) {
             input.value = '';
@@ -467,11 +517,6 @@
             var additionalExperienceFields = document.querySelector('.additionalExperienceFields');
             var newExperienceFields = additionalExperienceFields.cloneNode(true);
 
-            inputExperienceFields = newExperienceFields.getElementsByTagName("input");
-            for (var i = 0; i < inputExperienceFields.length; i++){
-                inputExperienceFields[i].disabled = false;
-                inputExperienceFields[i].required = true;
-            }
             // Reset values in the cloned fields
             newExperienceFields.querySelectorAll('input, textarea').forEach(function (input) {
                 input.value = '';
@@ -498,11 +543,6 @@
             var additionalCertificationFields = document.querySelector('.additionalCertificationFields');
             var newCertificationFields = additionalCertificationFields.cloneNode(true);
 
-            inputCertificationFields = newCertificationFields.getElementsByTagName("input");
-            for (var i = 0; i < inputCertificationFields.length; i++){
-                inputCertificationFields[i].disabled = false;
-                inputCertificationFields[i].required = true;
-            }
             // Reset values in the cloned fields
             newCertificationFields.querySelectorAll('input').forEach(function (input) {
                 input.value = '';
@@ -520,6 +560,58 @@
             if (additionalCertificationFields.length > 1) {
                 var lastCertificationFields = additionalCertificationFields[additionalCertificationFields.length - 1];
                 lastCertificationFields.parentNode.removeChild(lastCertificationFields);
+            }
+        }
+    </script>
+
+    <script>
+        function addSkillFields() {
+            var additionalSkillFields = document.querySelector('.additionalSkillFields');
+            var newSkillFields = additionalSkillFields.cloneNode(true);
+
+            // Reset values in the cloned fields
+            newSkillFields.querySelectorAll('input').forEach(function (input) {
+                input.value = '';
+            });
+
+            // Append the new fields and make them visible
+            additionalSkillFields.parentNode.appendChild(newSkillFields);
+            newSkillFields.style.display = 'block';
+        }
+
+        function removeSkillFields(button) {
+            var additionalSkillFields = document.querySelectorAll('.additionalSkillFields');
+
+            // Ensure there is at least one additional skill field
+            if (additionalSkillFields.length > 1) {
+                var lastSkillFields = additionalSkillFields[additionalSkillFields.length - 1];
+                lastSkillFields.parentNode.removeChild(lastSkillFields);
+            }
+        }
+    </script>
+
+    <script>
+        function addLanguagesFields() {
+            var additionalLanguagesFields = document.querySelector('.additionalLanguagesFields');
+            var newLanguagesFields = additionalLanguagesFields.cloneNode(true);
+
+            // Reset values in the cloned fields
+            newLanguagesFields.querySelectorAll('input').forEach(function (input) {
+                input.value = '';
+            });
+
+            // Append the new fields and make them visible
+            additionalLanguagesFields.parentNode.appendChild(newLanguagesFields);
+            newLanguagesFields.style.display = 'block';
+        }
+
+        function removeLanguagesFields(button) {
+            var additionalLanguagesFields = document.querySelectorAll('.additionalLanguagesFields');
+
+            // Ensure there is at least one additional languages field
+            if (additionalLanguagesFields.length > 1) {
+                var lastLanguagesFields = additionalLanguagesFields[additionalLanguagesFields.length - 1];
+                lastLanguagesFields.parentNode.removeChild(lastLanguagesFields);
             }
         }
     </script>
