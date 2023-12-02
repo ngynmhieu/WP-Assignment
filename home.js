@@ -87,7 +87,12 @@ window.onclick = function(event) {
         }
         // direct to page create cv
         else{
-            user_id = event.target.parentElement.parentElement.getElementsByTagName("ul")[0].children[0].innerHTML;
+            if(event.target.matches(".new-button") || event.target.matches(".add-button")){
+                user_id = 0;
+            }
+            else{
+                user_id = event.target.parentElement.parentElement.getElementsByTagName("ul")[0].children[0].innerHTML;
+            }
             let url = 'page_cv_create.php';
             let form = document.createElement("form");
             form.setAttribute("action", url);
