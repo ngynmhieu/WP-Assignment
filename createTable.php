@@ -118,21 +118,30 @@ include('DBconnection.php');
         // }
         
         // create table users
-    $sql = "CREATE TABLE user_login (
-        login_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        user_id INT (6) UNSIGNED,
-        login_username VARCHAR(30) NOT NULL,
-        login_password VARCHAR(255) NOT NULL,
-        FOREIGN KEY (user_id) REFERENCES users(user_id)
- )";
+//     $sql = "CREATE TABLE user_login (
+//         login_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//         user_id INT (6) UNSIGNED,
+//         login_username VARCHAR(30) NOT NULL,
+//         login_password VARCHAR(255) NOT NULL,
+//         FOREIGN KEY (user_id) REFERENCES users(user_id)
+//  )";
 
-if ($conn->query($sql) === TRUE){
-    echo "Successfully created table users";
-}
-else{
-    echo "ERROR creating table users" . $conn->error;
-}
+// if ($conn->query($sql) === TRUE){
+//     echo "Successfully created table users";
+// }
+// else{
+//     echo "ERROR creating table users" . $conn->error;
+// }
 // create table link 
 
+// Đổi kiểu dữ liệu cột upload_photo
+
+$sql = "ALTER TABLE users MODIFY upload_photo BLOB;";
+if ($conn->query($sql) === TRUE){
+    echo "Successfully created table products";
+}
+else{
+    echo "ERROR creating table products" . $conn->error;
+}
 
 ?>
