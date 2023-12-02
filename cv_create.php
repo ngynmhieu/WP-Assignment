@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
     
     //insert table users
+    
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $wanted_job = $_POST['wanted_job'];
@@ -13,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $city = $_POST['city'];
     $address = $_POST['address'];
     $date_of_birth = $_POST['date_of_birth'];
-    $upload_photo = $_POST['upload_photo'];
+    $upload_photo = addslashes(file_get_contents($_FILES["upload_photo"]["tmp_name"]));
     $email = $_POST['email'];
     $profile = $_POST['profile'];
 
