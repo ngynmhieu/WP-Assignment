@@ -36,12 +36,9 @@
             <div class="hr-body">
                 <hr>
         </div>
-        <form name="create cv" action="cv_create.php" method="post">
-            <?php
-                require __DIR__ . "/form.php";
-            ?>
-            <input type="submit">            
-        </form>
+        <?php
+            include ("form.php");
+        ?>
     </div>
 </body>
 </html>
