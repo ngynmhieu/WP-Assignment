@@ -1,5 +1,5 @@
 <?php
-print_r($_REQUEST);
+// print_r($_REQUEST);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     include ('DBconnection.php');

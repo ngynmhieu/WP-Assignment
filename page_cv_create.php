@@ -1,3 +1,12 @@
+<?php
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $user_id = $_POST["user_id"];
+    }
+    else{
+        $user_id = 0;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +20,7 @@
     <div class="container">        
         <div class="topbar">
             <div class="left">
-                <a href="home.html">
+                <a href="home.php">
                     <img src="image/cv.png" alt="page logo">
                     <div class="text-logo">
                         <p>Resume.io</p>
