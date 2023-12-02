@@ -4,7 +4,7 @@
     if ($_SERVER["REQUEST_METHOD"]== "GET"){
         include "DBconnection.php";
         $_username = $_GET["login_username"]; 
-        $sql = "SELECT * FROM user_login WHERE login_username = '$_username' AND user_id IS NOT NULL";
+        $sql = "SELECT * FROM cv_link_account WHERE login_username = '$_username'";
         $result = $conn->query($sql);
         $ids = [];
         $shows = [];

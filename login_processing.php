@@ -28,7 +28,7 @@
             $sql = "SELECT * FROM user_login WHERE login_username = '$username'";
             $result = $conn->query($sql);
             if ($result->num_rows == 0){
-                $sql = "INSERT INTO user_login(user_id, login_username, login_password) VALUES (NULL, '$username', '$password')";
+                $sql = "INSERT INTO user_login(login_username, login_password) VALUES ('$username', '$password')";
                 $conn->query($sql);
                 session_start();
                 setcookie("username", $username, time() + 60*60, '/');
