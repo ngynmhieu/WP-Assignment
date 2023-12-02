@@ -80,18 +80,27 @@ window.onclick = function(event) {
     }
     // create new form
     if (event.target.matches(".edit-button") || event.target.matches(".new-button") || event.target.matches(".add-button")){
-        user_id = event.target.parentElement.parentElement.getElementsByTagName("ul")[0].children[0].innerHTML;
-        let url = 'page_cv_create.php';
-        let form = document.createElement("form");
-        form.setAttribute("action", url);
-        form.setAttribute("method", "post");
-        let input_field = document.createElement("input");
-        input_field.setAttribute("type", "text");
-        input_field.setAttribute("name", "user_id");
-        input_field.setAttribute("value", user_id);
-        form.appendChild(input_field);
-        document.body.appendChild(form);
-        form.submit();
+        // redirect user to login page if not login
+        login_username = document.getElementsByClassName("headline")[0].getElementsByTagName("h2")[0].innerHTML;
+        if (login_username == "resume"){
+            window.location.replace("Login.php");
+        }
+        // direct to page create cv
+        else{
+            user_id = event.target.parentElement.parentElement.getElementsByTagName("ul")[0].children[0].innerHTML;
+            let url = 'page_cv_create.php';
+            let form = document.createElement("form");
+            form.setAttribute("action", url);
+            form.setAttribute("method", "post");
+            let input_field = document.createElement("input");
+            input_field.setAttribute("type", "text");
+            input_field.setAttribute("name", "user_id");
+            input_field.setAttribute("value", user_id);
+            form.appendChild(input_field);
+            document.body.appendChild(form);
+            form.submit();
+        }
+
         // window.location.replace("page_cv_create.php");
     }
 }

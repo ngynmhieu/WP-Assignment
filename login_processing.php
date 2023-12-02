@@ -15,15 +15,24 @@
                 echo "Incorrect username or password";
                 exit;
             }
-            echo "<script> window.location.replace(\"home.php?name=$username\"); </script>";
+            session_start();
+            setcookie("username", $username, time() + 60*60, '/');
+            echo "<script> window.location.replace(\"home.php\"); </script>";
         }
         else if(isset($_POST["Register"])){
+            if ($username == "resume"){
+                echo "Username already exist";
+                exit;
+            }
+
             $sql = "SELECT * FROM user_login WHERE login_username = '$username'";
             $result = $conn->query($sql);
             if ($result->num_rows == 0){
                 $sql = "INSERT INTO user_login(user_id, login_username, login_password) VALUES (NULL, '$username', '$password')";
                 $conn->query($sql);
-                echo "<script> window.location.replace(\"home.php?name=$username\"); </script>";
+                session_start();
+                setcookie("username", $username, time() + 60*60, '/');
+                echo "<script> window.location.replace(\"home.php\"); </script>";
             }
             else{
                 echo "Username already exist";

@@ -1,3 +1,10 @@
+<?php
+  if (isset($_COOKIE["username"])){
+    setcookie("username", False, time() - 0, '/');
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +16,7 @@
 <body>
     <form action="login_processing.php" method="post">
         <div class="imgcontainer">
-          <img src="/image/user.png" alt="Avatar" class="avatar">
+          <img src="image/user.png" alt="Avatar" class="avatar">
         </div>
         <div class="container">
           <label for="login_username"><b>Username</b></label>

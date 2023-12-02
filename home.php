@@ -1,8 +1,8 @@
 <!-- take login name sent from login_processing.php -->
 <!-- unfinished -->
 <?php
-    if (isset($_GET["name"])){
-        $name = strval($_GET["name"]);
+    if (isset($_COOKIE["username"])){
+        $name = $_COOKIE["username"];
     }
     else{
         $name = "resume";
@@ -31,7 +31,7 @@
                 <img src="image/user.png" alt="personal icon">
             </button>
             <div class="dropdown">
-                <a href="Login.html">Logout</a>
+                <a href="Login.php">Logout</a>
             </div>
         </div>
     </div>
