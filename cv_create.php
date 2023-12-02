@@ -4,6 +4,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){ //tao cv moi
     $user_id = $_POST['user_id'];
+    $username  = $_POST['login_username'];
     include ('DBconnection.php');
     //insert table users
     
@@ -33,7 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //tao cv moi
     $languages = array_filter($_POST['languages']);
     
     
-    if ($user_id > 0){ // xoa cac dong de add lai
+    if ($user_id > 0){ // xóa các cột có user_id bằng với user_id cần edit để sau đó add lại
+        $sql_delete = "DELETE FROM user_login WHERE user_id = '$user_id'";
+        mysqli_query($conn, $sql_delete);
         $sql_delete = "DELETE FROM user_phoneNumber WHERE user_id = '$user_id'";
         mysqli_query($conn, $sql_delete);
         mysqli_error($conn);
@@ -56,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //tao cv moi
         mysqli_query($conn, $sql_delete);
     }
     
+    //add lai du lieu
     $sql = "INSERT INTO users(first_name, last_name, wanted_job, country, city,
     address, date_of_birth, upload_photo, email, profile)
     VALUES ('$first_name', '$last_name', '$wanted_job', '$country', '$city',
@@ -128,6 +132,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //tao cv moi
             $sql_insert = "INSERT INTO user_languages (user_id, languages)
             VALUES ('$user_id', '$language_insert')";
             mysqli_query($conn, $sql_insert); // execute sql insert
+        }
+
+        //insert cv_link_account
+        $sql = "INSERT INTO cv_link_account(user_id, login_username)
+        VALUES ('$user_id', '$username')";
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
 }
 header ('Location: home.php');
