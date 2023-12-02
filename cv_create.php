@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $phone_numbers = $_POST['phone_number'];
     foreach ($phone_numbers as $index=>$phone_number){
         if (empty($phone_number)) {
-            break;
+            continue;
         }
         $phone_insert= $phone_number;
         $sql_insert = "INSERT INTO user_phoneNumber (user_id, phone_number)
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     foreach ($exp_jobs as $index=>$exp_job){
         if (empty($exp_job)) {
-            break;
+            continue;
         }
         $job_insert= $exp_job;
         $startDay_insert = $exp_startDays[$index];
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
     foreach($edu_schools as $index=>$edu_school){
         if (empty($edu_school)) {
-            break;
+            continue;
         }
         $school_insert = $edu_school;
         $degree_insert = $edu_degrees[$index];
@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $certi_descriptions = $_POST['certi_description'];
     foreach ($certi_names as $index=>$certi_name){
         if (empty($certi_name)) {
-            break;
+            continue;
         }
         $name_insert = $certi_name;
         $description_insert = $certi_descriptions[$index];
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $skills = $_POST['skills'];
     foreach($skills as $index=>$skill){ 
         if (empty($skill)) {
-            break;
+            continue;
         }
         $skill_insert = $skill;
         $sql_insert = "INSERT INTO user_skills (user_id, skills)
@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $languages = $_POST['languages'];
     foreach($languages as $index=>$language){ 
         if (empty($language)) {
-            break;
+            continue;
         }
         $language_insert = $language;
         $sql_insert = "INSERT INTO user_languages (user_id, languages)
