@@ -22,7 +22,8 @@
     <div class="container mt-3">
         <div style="background-color: #f0f0f0;">
 
-            <form action="insertTable.php" method="post">
+        <form action="cv_create.php" method="post">
+
 
                 <!-- Personal Details -->
                 <div class="card mt-3">
@@ -35,7 +36,7 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="wanted_job">Wanted Job Title:</label>
-                                <input type="text" class="form-control" name="wanted_job" placeholder="e.g Teacher" required>
+                                <input type="text" class="form-control" name="wanted_job" placeholder="e.g Teacher" >
                             </div>
                             <div class="col text-center">
                                 <label id="fileInputLabel" for="fileInput" class="btn btn-primary">Choose File</label>
@@ -49,33 +50,33 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="first_name">First Name:</label>
-                                <input type="text" class="form-control" name="first_name" required>
+                                <input type="text" class="form-control" name="first_name" >
                             </div>
                             <div class="col">
                                 <label for="last_name">Last Name:</label>
-                                <input type="text" class="form-control" name="last_name" required>
+                                <input type="text" class="form-control" name="last_name" >
                             </div>
                         </div>
 
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="country">Country:</label>
-                                <input type="text" class="form-control" name="country" required>
+                                <input type="text" class="form-control" name="country" >
                             </div>
                             <div class="col">
                                 <label for="city">City:</label>
-                                <input type="text" class="form-control" name="city" required>
+                                <input type="text" class="form-control" name="city" >
                             </div>
                         </div>
 
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="address">Address:</label>
-                                <input type="text" class="form-control" name="address" required>
+                                <input type="text" class="form-control" name="address" >
                             </div>
                             <div class="col">
                                 <label for="date_of_birth">Date Of Birth:</label>
-                                <input type="date" class="form-control" name="date_of_birth" required>
+                                <input type="date" class="form-control" name="date_of_birth" >
                             </div>
                         </div>
 
@@ -93,12 +94,12 @@
                         <!-- Initial Contact Fields -->
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="user_phoneNumber">Phone Numbers:</label>
-                                <input type="text" class="form-control" name="user_phoneNumber[]" pattern="\d{10}" title="Please enter a 10-digit phone number" required>
+                                <label for="phone_number">Phone Numbers:</label>
+                                <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" title="Please enter a 10-digit phone number" >
                             </div>
                             <div class="col">
                                 <label for="email">Email:</label>
-                                <input type="text" class="form-control" name="email[]" required>
+                                <input type="text" class="form-control" name="email" >
                             </div>
                         </div>
 
@@ -106,12 +107,8 @@
                         <div class="additionalContactFields" style="display: none;">
                             <div class="form-row mb-3">
                                 <div class="col">
-                                    <label for="user_phoneNumber">Additional Phone:</label>
-                                    <input type="text" class="form-control" name="user_phoneNumber[]" pattern="\d{10}" title="Please enter a 10-digit phone number">
-                                </div>
-                                <div class="col">
-                                    <label for="email">Additional Email:</label>
-                                    <input type="text" class="form-control" name="email[]">
+                                    <label for="phone_number">Additional Phone:</label>
+                                    <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" title="Please enter a 10-digit phone number">
                                 </div>
                             </div>
                         </div>
@@ -146,7 +143,7 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="profile">Personal Summary:</label>
-                                <textarea name="profile" placeholder="e.g Passionate science teacher with 8+ years of experience and a track record of ..." class="form-control" maxlength="200" required></textarea>
+                                <textarea name="profile" placeholder="e.g Passionate science teacher with 8+ years of experience and a track record of ..." class="form-control" maxlength="200" ></textarea>
                             </div>
                         </div>
 
@@ -165,25 +162,25 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="exp_job">Job Title:</label>
-                                <input type="text" class="form-control" name="exp_job[]" required>
+                                <input type="text" class="form-control" name="exp_job[]" >
                             </div>
                         </div>
 
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="exp_startDay">Start Day:</label>
-                                <input type="date" class="form-control" name="exp_startDay[]" required>
+                                <input type="date" class="form-control" name="exp_startDay[]" >
                             </div>
                             <div class="col">
                                 <label for="exp_endDay">End Day:</label>
-                                <input type="date" class="form-control" name="exp_EndDay[]" required>
+                                <input type="date" class="form-control" name="exp_endDay[]" >
                             </div>
                         </div>
 
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="exp_summary">Personal Summary:</label>
-                                <textarea name="exp_summary[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" required></textarea>
+                                <label for="exp_description">Personal Summary:</label>
+                                <textarea name="exp_description[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" ></textarea>
                             </div>
                         </div>
 
@@ -192,23 +189,23 @@
                             <div class="form-row mb-3">
                                 <div class="col">
                                     <label for="exp_job">Job Title:</label>
-                                    <input type="text" class="form-control" name="exp_job[]" required>
+                                    <input type="text" class="form-control" name="exp_job[]" >
                                 </div>
                             </div>
                             <div class="form-row mb-3">
                                 <div class="col">
                                     <label for="exp_startDay">Start Day:</label>
-                                    <input type="date" class="form-control" name="exp_startDay[]" required>
+                                    <input type="date" class="form-control" name="exp_startDay[]" >
                                 </div>
                                 <div class="col">
                                     <label for="exp_endDay">End Day:</label>
-                                    <input type="date" class="form-control" name="exp_EndDay[]" required>
+                                    <input type="date" class="form-control" name="exp_endDay[]" >
                                 </div>
                             </div>
                             <div class="form-row mb-3">
                                 <div class="col">
-                                    <label for="exp_summary">Personal Summary:</label>
-                                    <textarea name="exp_summary[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" required></textarea>
+                                    <label for="exp_description">Personal Summary:</label>
+                                    <textarea name="exp_description[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200" ></textarea>
                                 </div>
                             </div>
                         </div>
@@ -237,29 +234,29 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="edu_school">School:</label>
-                                <input type="text" class="form-control" name="edu_school[]" required>
+                                <input type="text" class="form-control" name="edu_school[]" >
                             </div>
                             <div class="col">
                                 <label for="edu_degree">Degree:</label>
-                                <input type="text" class="form-control" name="edu_degree[]" required>
+                                <input type="text" class="form-control" name="edu_degree[]" >
                             </div>
                         </div>
 
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="edu_startDay">Start Day:</label>
-                                <input type="date" class="form-control" name="edu_startDay[]" required>
+                                <input type="date" class="form-control" name="edu_startDay[]" >
                             </div>
                             <div class="col">
                                 <label for="edu_endDay">End Day:</label>
-                                <input type="date" class="form-control" name="edu_EndDay[]" required>
+                                <input type="date" class="form-control" name="edu_endDay[]" >
                             </div>
                         </div>
 
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="edu_summary">Personal Summary:</label>
-                                <textarea name="edu_summary[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" required></textarea>
+                                <label for="edu_description">Personal Summary:</label>
+                                <textarea name="edu_description[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" ></textarea>
                             </div>
                         </div>
 
@@ -268,27 +265,27 @@
                             <div class="form-row mb-3">
                                 <div class="col">
                                     <label for="edu_school">School:</label>
-                                    <input type="text" class="form-control" name="edu_school[]" required>
+                                    <input type="text" class="form-control" name="edu_school[]" >
                                 </div>
                                 <div class="col">
                                     <label for="edu_degree">Degree:</label>
-                                    <input type="text" class="form-control" name="edu_degree[]" required>
+                                    <input type="text" class="form-control" name="edu_degree[]" >
                                 </div>
                             </div>
                             <div class="form-row mb-3">
                                 <div class="col">
                                     <label for="edu_startDay">Start Day:</label>
-                                    <input type="date" class="form-control" name="edu_startDay[]" required>
+                                    <input type="date" class="form-control" name="edu_startDay[]" >
                                 </div>
                                 <div class="col">
                                     <label for="edu_endDay">End Day:</label>
-                                    <input type="date" class="form-control" name="edu_EndDay[]" required>
+                                    <input type="date" class="form-control" name="edu_endDay[]" >
                                 </div>
                             </div>
                             <div class="form-row mb-3">
                                 <div class="col">
-                                    <label for="edu_summary">Personal Summary:</label>
-                                    <textarea name="edu_summary[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" required></textarea>
+                                    <label for="edu_description">Personal Summary:</label>
+                                    <textarea name="edu_description[]" placeholder="e.g Graduated with High Honors." class="form-control" maxlength="200" ></textarea>
                                 </div>
                             </div>
                         </div>
@@ -317,11 +314,11 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="certi_name">Certification Name:</label>
-                                <input type="text" class="form-control" name="certi_name[]" required>
+                                <input type="text" class="form-control" name="certi_name[]" >
                             </div>
                             <div class="col">
                                 <label for="certi_description">Certification Description:</label>
-                                <input type="text" class="form-control" name="certi_description[]" required>
+                                <input type="text" class="form-control" name="certi_description[]" >
                             </div>
                         </div>
 
@@ -330,11 +327,11 @@
                             <div class="form-row mb-3">
                                 <div class="col">
                                     <label for="certi_name">Certification Name:</label>
-                                    <input type="text" class="form-control" name="certi_name[]" required>
+                                    <input type="text" class="form-control" name="certi_name[]" >
                                 </div>
                                 <div class="col">
                                     <label for="certi_description">Certification Description:</label>
-                                    <input type="text" class="form-control" name="certi_description[]" required>
+                                    <input type="text" class="form-control" name="certi_description[]" >
                                 </div>
                             </div>
                         </div>
@@ -362,8 +359,8 @@
                         <!-- Skill Fields -->
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="user_skill">Personal Skill (optional):</label>
-                                <input type="text" class="form-control" name="user_skill[]" required>
+                                <label for="skills">Personal Skill (optional):</label>
+                                <input type="text" class="form-control" name="skills[]" >
                             </div>
                         </div>
 
@@ -371,8 +368,8 @@
                         <div class="additionalSkillFields" style="display: none;">
                             <div class="form-row mb-3">
                                 <div class="col">
-                                    <label for="user_skill">Personal Skill (optional):</label>
-                                    <input type="text" class="form-control" name="user_skill[]" required>
+                                    <label for="skills">Personal Skill (optional):</label>
+                                    <input type="text" class="form-control" name="skills[]" >
                                 </div>
                             </div>
                         </div>
@@ -400,8 +397,8 @@
                         <!-- Languages Fields -->
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="user_languages">Languages (optional):</label>
-                                <input type="text" class="form-control" name="user_languages[]" required>
+                                <label for="languages">Languages (optional):</label>
+                                <input type="text" class="form-control" name="languages[]" >
                             </div>
                         </div>
 
@@ -410,8 +407,8 @@
                         <div class="additionalLanguagesFields" style="display: none;">
                             <div class="form-row mb-3">
                                 <div class="col">
-                                <label for="user_languages">Languages (optional):</label>
-                                <input type="text" class="form-control" name="user_languages[]" required>
+                                <label for="languages">Languages (optional):</label>
+                                <input type="text" class="form-control" name="languages[]" >
                                 </div>
                             </div>
                         </div>
