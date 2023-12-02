@@ -104,6 +104,7 @@ window.onclick = function(event) {
             form.appendChild(input_field);
             document.body.appendChild(form);
             form.submit();
+            document.body.removeChild(document.body.lastChild);
         }
 
         // window.location.replace("page_cv_create.php");

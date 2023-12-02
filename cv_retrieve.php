@@ -39,6 +39,7 @@
             $email = $result["email"];
             $profile = $result["profile"];
             $show = "<h2> $first_name $last_name </h2>
+                    <img src=\"$upload_photo\" alt=\"Personal Picture\">
                     <ul>
                         <li>$id</li>
                         <li>Wanted job: $wanted_job</li>
@@ -46,7 +47,6 @@
                         <li>City: $city</li>
                         <li>Address: $address</li>
                         <li>Date of birth: $date_of_birth</li>
-                        <li>Upload photo: $upload_photo</li>
                         <li>Email: $email</li>
                         <li>Profile: $profile</li>
                     </ul>";

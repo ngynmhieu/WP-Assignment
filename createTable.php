@@ -2,7 +2,7 @@
 include('DBconnection.php');
 
 
-// create table products
+// // create table products
 // $sql = "CREATE TABLE users (
 //     user_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //     first_name VARCHAR(50) NOT NULL,
@@ -111,13 +111,13 @@ include('DBconnection.php');
 //     FOREIGN KEY (user_id) REFERENCES users(user_id)
 // )";
 // if ($conn->query($sql) === TRUE){
-    //     echo "Successfully created table products";
-    // }
-    // else{
-        //     echo "ERROR creating table products" . $conn->error;
-        // }
+//         echo "Successfully created table products";
+//     }
+//     else{
+//             echo "ERROR creating table products" . $conn->error;
+//         }
         
-        // create table users
+//         // create table users
 //     $sql = "CREATE TABLE user_login (
 //         login_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //         user_id INT (6) UNSIGNED,
@@ -132,9 +132,9 @@ include('DBconnection.php');
 // else{
 //     echo "ERROR creating table users" . $conn->error;
 // }
-// create table link 
+// // create table link 
 
-// Đổi kiểu dữ liệu cột upload_photo
+// // Đổi kiểu dữ liệu cột upload_photo
 
 // $sql = "ALTER TABLE users MODIFY upload_photo BLOB;";
 // if ($conn->query($sql) === TRUE){
@@ -144,7 +144,7 @@ include('DBconnection.php');
 //     echo "ERROR creating table products" . $conn->error;
 // }
 
-xoa bangr user_login
+// xoa bangr user_login
 $sql = "DROP TABLE IF EXISTS user_login";
 mysqli_query($conn, $sql);
 // tao lai bang user_login
