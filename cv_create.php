@@ -31,7 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
     //insert table phone number
     $phone_numbers = $_POST['phone_number'];
-    foreach ($phone_numbers as $phone_number){
+    foreach ($phone_numbers as $index=>$phone_number){
+        if (empty($phone_number)) {
+            break;
+        }
         $phone_insert= $phone_number;
         $sql_insert = "INSERT INTO user_phoneNumber (user_id, phone_number)
         VALUES ('$user_id', '$phone_insert')";
@@ -45,7 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $exp_descriptions = $_POST['exp_description'];
 
     foreach ($exp_jobs as $index=>$exp_job){
-        $job_insert= $exp_job[$index];
+        if (empty($exp_job)) {
+            break;
+        }
+        $job_insert= $exp_job;
         $startDay_insert = $exp_startDays[$index];
         $endDay_insert = $exp_endDays[$index];
         $description_insert = $exp_descriptions[$index];
@@ -65,7 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $edu_descriptions = $_POST['edu_description'];
     
     foreach($edu_schools as $index=>$edu_school){
-        $school_insert = $edu_school[$index];
+        if (empty($edu_school)) {
+            break;
+        }
+        $school_insert = $edu_school;
         $degree_insert = $edu_degrees[$index];
         $startDay_insert = $edu_startDays[$index];
         $endDay_insert = $edu_endDays[$index];
@@ -82,7 +91,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $certi_names = $_POST['certi_name'];
     $certi_descriptions = $_POST['certi_description'];
     foreach ($certi_names as $index=>$certi_name){
-        $name_insert = $certi_name[$index];
+        if (empty($certi_name)) {
+            break;
+        }
+        $name_insert = $certi_name;
         $description_insert = $certi_descriptions[$index];
         $sql_insert = "INSERT INTO user_certification (user_id, certi_name, certi_description)
         VALUES ('$user_id', '$name_insert', '$description_insert')";
@@ -91,20 +103,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //insert table skills
     $skills = $_POST['skills'];
-    foreach($skills as $skill){ 
+    foreach($skills as $index=>$skill){ 
+        if (empty($skill)) {
+            break;
+        }
         $skill_insert = $skill;
         $sql_insert = "INSERT INTO user_skills (user_id, skills)
-        VALUES ('$user_id', '$skill_insert)";
+        VALUES ('$user_id', '$skill_insert')";
         mysqli_query($conn, $sql_insert); // execute sql insert
     }
+
     //insert table languages
-    $language = $_POST['languages'];
-    foreach($languages as $language){ 
+    $languages = $_POST['languages'];
+    foreach($languages as $index=>$language){ 
+        if (empty($language)) {
+            break;
+        }
         $language_insert = $language;
         $sql_insert = "INSERT INTO user_languages (user_id, languages)
-        VALUES ('$user_id', '$language_insert)";
+        VALUES ('$user_id', '$language_insert')";
         mysqli_query($conn, $sql_insert); // execute sql insert
     }
+    
 }
-
+header ('Location: home.php');
 ?>
