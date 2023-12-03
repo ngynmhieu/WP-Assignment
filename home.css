@@ -149,7 +149,7 @@ li{
 }
 .resume{
     overflow: hidden;
-    width: 500px;
+    width: 400px;
     aspect-ratio: 9/13;
     border: 1px solid gray;
     border-radius: 20px;
@@ -180,7 +180,7 @@ li{
 }
 .add-resume{
     display: flex;
-    width: 500px;
+    width: 400px;
     aspect-ratio: 9/13;
     border: 1px solid gray;
     border-radius: 20px;
