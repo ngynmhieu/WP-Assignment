@@ -12,7 +12,9 @@
             $sql = "SELECT * FROM user_login WHERE login_username = '$username' AND login_password = '$password'";
             $result = $conn->query($sql);
             if ($result->num_rows == 0){
-                echo "Incorrect username or password";
+                echo "<script> window.location.replace(\"Login.php\"); 
+                        alert(\"Incorrect username or password\")    
+                    </script>";
                 exit;
             }
             session_start();
@@ -21,7 +23,10 @@
         }
         else if(isset($_POST["Register"])){
             if ($username == "resume"){
-                echo "Username already exist";
+                echo "<script> window.location.replace(\"Login.php\"); 
+                        alert(\"Username already exist\")    
+                    </script>";
+
                 exit;
             }
 
@@ -35,7 +40,9 @@
                 echo "<script> window.location.replace(\"home.php\"); </script>";
             }
             else{
-                echo "Username already exist";
+                echo "<script> window.location.replace(\"Login.php\"); 
+                        alert(\"Username already exist\")    
+                    </script>";
                 exit;
             }
         } 
