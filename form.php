@@ -36,7 +36,8 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="wanted_job">Wanted Job Title:</label>
-                                <input type="text" class="form-control" name="wanted_job" placeholder="e.g Teacher" >
+                                <input type="text" class="form-control" name="wanted_job" placeholder="e.g Teacher"
+                                value = "<?php echo ($user_id >0)?('$wanted_job'): '' ?>" >
                             </div>
                             <div class="col text-center">
                                 <label id="fileInputLabel" for="fileInput" class="btn btn-primary" style="color:white">Choose File</label>
