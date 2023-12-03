@@ -1,5 +1,3 @@
-<!-- take login name sent from login_processing.php -->
-<!-- unfinished -->
 <?php
     if (isset($_COOKIE["username"])){
         $name = $_COOKIE["username"];
