@@ -34,9 +34,6 @@ function delete_record(id){
         if(this.readyState == 4 && this.status == 200){
             return true;
         }
-        else{
-            return false;
-        }
     }
     xhttp.open("DELETE", "cv_delete.php?user_id="+id, true);
     xhttp.send();
@@ -46,6 +43,7 @@ function delete_record(id){
 window.onload = function(){
     user_name = document.getElementsByClassName("headline")[0].getElementsByTagName("h2")[0].innerHTML;
     retrieve_data(user_name);
+
 }
 
 
@@ -68,11 +66,6 @@ window.onclick = function(event) {
             parent = event.target.parentElement.parentElement;
             id = parent.getElementsByTagName("ul")[0].children[0].innerHTML;
             result = delete_record(id);            
-            if(result){
-                alert("Deleted!");
-            } else{
-                alert("Delete unsucessful!");
-            }
             window.location.reload();
         } else{
             alert("Cancel!");

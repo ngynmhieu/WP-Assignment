@@ -1,5 +1,4 @@
 <?php
-
     // delete cv
     if($_SERVER["REQUEST_METHOD"] == "DELETE"){
         include "DBconnection.php";
@@ -24,11 +23,15 @@
         // skill
         $sql = "DELETE FROM user_skills WHERE user_id = $user_id";
         $conn->query($sql);
-        // delete login information
-        $sql = "DELETE FROM user_login WHERE user_id = $user_id";
-        $conn->query($sql);
         // user id
         $sql = "DELETE FROM users WHERE user_id = $user_id";
+        if ($conn->query($sql) === TRUE) {
+            echo "Record deleted successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        // delete user id and login name link
+        $sql = "DELETE FROM cv_link_account WHERE user_id = $user_id";
         if ($conn->query($sql) === TRUE) {
             echo "Record deleted successfully";
         } else {

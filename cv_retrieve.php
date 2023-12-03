@@ -7,7 +7,9 @@
         $sql = "SELECT * FROM cv_link_account WHERE login_username = '$_username'";
         $result = $conn->query($sql);
         $ids = [];
-        $shows = [];
+        $shows_head = [];
+        $shows_tail = [];
+        $blobs = [];
         if ($result->num_rows == 0){
             return;
         }
@@ -38,23 +40,29 @@
             $upload_photo = $result["upload_photo"];
             $email = $result["email"];
             $profile = $result["profile"];
-            // <img src=\"$upload_photo\" alt=\"Personal Picture\">
             
-            $show = "<h2> $first_name $last_name </h2>
-                    <ul>
-                        <li>$id</li>
-                        <li>Wanted job: $wanted_job</li>
-                        <li>Country: $country</li>
-                        <li>City: $city</li>
-                        <li>Address: $address</li>
-                        <li>Date of birth: $date_of_birth</li>
-                        <li>Email: $email</li>
-                        <li>Profile: $profile</li>
-                    </ul>";
-            $shows[] = "<div class=\"resume\">" . $button . $show . "</div>";
+            $show_head = "<div class=\"resume\">" . $button . "<h2> $first_name $last_name </h2>";
+            $blob = $upload_photo;
+            $show_tail = "  <ul>
+                                <li>$id</li>
+                                <li>Wanted job: $wanted_job</li>
+                                <li>Country: $country</li>
+                                <li>City: $city</li>
+                                <li>Address: $address</li>
+                                <li>Date of birth: $date_of_birth</li>
+                                <li>Email: $email</li>
+                                <li>Profile: $profile</li>
+                            </ul>" . "</div>";
+            $shows_head[] = $show_head;
+            $blobs[] = $blob;
+            $shows_tail[] = $show_tail;
         }
-        foreach($shows as $show){
-            echo $show;
+        foreach($shows_head as $index => $show_head){
+            $blob = $blobs[$index];
+            $show_tail = $shows_tail[$index];
+            echo $show_head;
+            echo '<img src="data:image/png;base64,'.base64_encode($blob).'"/>';
+            echo $show_tail;
         }
     }
 ?>
