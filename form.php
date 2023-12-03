@@ -23,7 +23,7 @@
         <div style="background-color: #f0f0f0;">
             <form action="cv_create.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-            <input type="hidden" name="login_username" value="<?php echo $user_id; ?>">
+            <input type="hidden" name="login_username" value="<?php echo $user_name; ?>">
 
                 <!-- Personal Details -->
                 <div class="card mt-3">
@@ -36,7 +36,8 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="wanted_job">Wanted Job Title:</label>
-                                <input type="text" class="form-control" name="wanted_job" placeholder="e.g Teacher" >
+                                <input type="text" class="form-control" name="wanted_job" placeholder="e.g Teacher"
+                                value = "<?php echo ($user_id >0)?('$wanted_job'): '' ?>" >
                             </div>
                             <div class="col text-center">
                                 <label id="fileInputLabel" for="fileInput" class="btn btn-primary" style="color:white">Choose File</label>
@@ -97,6 +98,10 @@
                                 <label for="phone_number">Phone Numbers:</label>
                                 <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" placeholder="Please enter a 10-digit phone number" >
                             </div>
+                            <div class="col">
+                                <label for="email">Email:</label>
+                                <input type="text" class="form-control" name="email" >
+                            </div>
                         </div>
 
                         <!-- Additional Contact Fields (Hidden by default) -->
@@ -105,6 +110,10 @@
                                 <div class="col">
                                     <label for="phone_number">Phone Numbers:</label>
                                     <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" placeholder="Please enter a 10-digit phone number" >
+                                </div>
+                                <div class="col">
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" name="email" >
                                 </div>
                             </div>
                         </div>
