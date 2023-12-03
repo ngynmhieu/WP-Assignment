@@ -475,7 +475,7 @@
             var certiDescriptionElements = document.getElementsByName("certi_description[]");
 
             // Check specific empty inputs
-            if (wantedJob.trim() === '' || firstName.trim() === '' || lastName.trim() === '' || country.trim() === '' || city.trim() === ''|| address.trim() === ''|| dateOfBirth.trim() === '') {
+            if (wantedJob.trim() === '' || firstName.trim() === '' || lastName.trim() === '' || country.trim() === '' || city.trim() === ''|| address.trim() === ''|| dateOfBirth.trim() === ''|| uploadPhoto.trim() === '') {
                 alert('Please fill in all required fields.');
                 return false;
             }
