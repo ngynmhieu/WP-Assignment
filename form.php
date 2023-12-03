@@ -21,9 +21,10 @@
 <body style="background-color: #f0f0f0;">
     <div class="container mt-3">
         <div style="background-color: #f0f0f0;">
+            <form action="cv_create.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+            <input type="hidden" name="login_username" value="<?php echo $user_id; ?>">
 
-        <form action="cv_create.php" method="post" enctype="multipart/form-data">
-        <!-- <input type="hidden" name="user_id" value="<?php echo $user_id; ?>"> -->
                 <!-- Personal Details -->
                 <div class="card mt-3">
                     <div class="card-header background-color: #f0f0f0;">
@@ -94,7 +95,7 @@
                         <div class="form-row mb-3">
                             <div class="col">
                                 <label for="phone_number">Phone Numbers:</label>
-                                <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" title="Please enter a 10-digit phone number" >
+                                <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" placeholder="Please enter a 10-digit phone number" >
                             </div>
                             <div class="col">
                                 <label for="email">Email:</label>
@@ -106,8 +107,12 @@
                         <div class="additionalContactFields" style="display: none;">
                             <div class="form-row mb-3">
                                 <div class="col">
-                                    <label for="phone_number">Additional Phone:</label>
-                                    <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" title="Please enter a 10-digit phone number">
+                                    <label for="phone_number">Phone Numbers:</label>
+                                    <input type="text" class="form-control" name="phone_number[]" pattern="\d{10}" placeholder="Please enter a 10-digit phone number" >
+                                </div>
+                                <div class="col">
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" name="email" >
                                 </div>
                             </div>
                         </div>
@@ -183,7 +188,7 @@
                             </div>
                         </div>
 
-                        <!-- Additional Experience Fields (Hidden by default) -->
+                        <!-- Additional Experience Fields -->
                         <div class="additionalExperienceFields" style="display: none;">
                             <div class="form-row mb-3">
                                 <div class="col">
@@ -425,16 +430,95 @@
                     </div>
                 </div>
 
-                <!-- Submit Button -->
-                <div class="form-row mt-3">
-                    <div class="col">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <!-- Submit Button with Validation -->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
-                </div>
 
             </form>
         </div>
     </div>
+    <script>
+        function validateForm() {
+            // Personal detail
+            var wantedJob = document.getElementsByName("wanted_job")[0].value;
+            var firstName = document.getElementsByName("first_name")[0].value;
+            var lastName = document.getElementsByName("last_name")[0].value;
+            var country = document.getElementsByName("country")[0].value;
+            var city = document.getElementsByName("city")[0].value;
+            var address = document.getElementsByName("address")[0].value;
+            var dateOfBirth = document.getElementsByName("date_of_birth")[0].value;
+            var uploadPhoto = document.getElementsByName("upload_photo")[0].value;
+            // Contact
+            var userPhoneNumberElements = document.getElementsByName("phone_number[]");
+
+            // Profile
+            var profileElement = document.getElementsByName("profile")[0];
+
+            // Experience
+            var expJobElements = document.getElementsByName("exp_job[]");
+            var expStartElements = document.getElementsByName("exp_startDay[]");
+            var expEndElements = document.getElementsByName("exp_endDay[]");
+            var expDescriptionElements = document.getElementsByName("exp_description[]");
+
+            // Education
+            var eduSchoolElements = document.getElementsByName("edu_school[]");
+            var eduDegreeElements = document.getElementsByName("edu_degree[]");
+            var eduStartElements = document.getElementsByName("edu_startDay[]");
+            var eduEndElements = document.getElementsByName("edu_endDay[]");
+            var eduDescriptionElements = document.getElementsByName("edu_description[]");
+
+            // Certification
+            var certiNameElements = document.getElementsByName("certi_name[]");
+            var certiDescriptionElements = document.getElementsByName("certi_description[]");
+
+            // Check specific empty inputs
+            if (wantedJob.trim() === '' || firstName.trim() === '' || lastName.trim() === '' || country.trim() === '' || city.trim() === ''|| address.trim() === ''|| dateOfBirth.trim() === '') {
+                alert('Please fill in all required fields.');
+                return false;
+            }
+
+            if (!checkFields(userPhoneNumberElements) ||
+            !checkField(profileElement) ||
+            !checkFields(expStartElements) ||
+            !checkFields(expEndElements) ||
+            !checkFields(expDescriptionElements) ||
+            !checkFields(eduSchoolElements) ||
+            !checkFields(eduDegreeElements) ||
+            !checkFields(eduStartElements) ||
+            !checkFields(eduEndElements) ||
+            !checkFields(eduDescriptionElements) ||
+            !checkFields(certiNameElements) ||
+            !checkFields(certiDescriptionElements)) {
+            alert("Please fill in all required fields.");
+            return false;
+            }
+            return true;
+        }
+
+        function checkField(element) {
+            return element.value.trim() !== "";
+        }
+
+        function checkFields(elements) {
+            for (var i = 0; i < elements.length; i++) {
+                if (!checkField(elements[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+
+    <script>
+        function submitForm() {
+            if (validateForm()) {
+                document.forms["cvForm"].submit();
+            }
+        }
+    </script>
 
     <script>
         function displayImage(input) {
