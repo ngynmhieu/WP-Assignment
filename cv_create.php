@@ -143,5 +143,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //tao cv moi
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
 }
-header ('Location: home.php');
+    $message = "Your CV is successfully created";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    header("refresh:0; url=home.php");
+
 ?>
