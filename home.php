@@ -1,6 +1,6 @@
 <?php
     if (isset($_COOKIE["username"])){
-        $name = $_COOKIE["username"];
+        $name = "Welcome " . $_COOKIE["username"];
     }
     else{
         $name = "resume";

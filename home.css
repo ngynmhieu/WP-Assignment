@@ -1,5 +1,5 @@
 body{
-    font-size: 25px;
+    font-size: 35px;
     margin: 20px 100px;
 }
 
@@ -10,6 +10,9 @@ img{
 
 p, h2{
     margin: 0;
+}
+li{
+    font-size: 20px;
 }
 .container{
     width: 80%;
@@ -146,8 +149,8 @@ p, h2{
 }
 .resume{
     overflow: hidden;
-    height: 300px;
-    width: 35%;
+    width: 500px;
+    aspect-ratio: 9/13;
     border: 1px solid gray;
     border-radius: 20px;
     padding: 10px;
@@ -177,8 +180,8 @@ p, h2{
 }
 .add-resume{
     display: flex;
-    height: 300px;
-    width: 35%;
+    width: 500px;
+    aspect-ratio: 9/13;
     border: 1px solid gray;
     border-radius: 20px;
     padding: 10px;
