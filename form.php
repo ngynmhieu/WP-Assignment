@@ -43,7 +43,8 @@
                                 <label id="fileInputLabel" for="fileInput" class="btn btn-primary" style="color:white">Choose File</label>
                                 <input type="file" id="fileInput" class="form-control-file" name="upload_photo" accept="image/*" onchange="displayImage(this)">
                                 <div class="mt-2" id="imageContainer">
-                                    <img src="no_profile.jpg" alt="Temporary Profile Photo" id="upload_photo" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                                <img src="<?php echo ($user_id > 0) ? "data:image/jpeg;base64," . base64_encode($upload_photo) : 'no_profile.jpg'; ?>" 
+                                alt="Temporary Profile Photo" id="upload_photo" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
                                 </div>
                             </div>
                         </div>
