@@ -504,7 +504,7 @@
 
         function checkFields(elements) {
             for (var i = 0; i < elements.length; i++) {
-                if (!checkField(elements[i])) {
+                if (elements[i].offsetParent !== null && !checkField(elements[i])) {
                     return false;
                 }
             }
