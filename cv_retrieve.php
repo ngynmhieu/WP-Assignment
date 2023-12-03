@@ -38,8 +38,9 @@
             $upload_photo = $result["upload_photo"];
             $email = $result["email"];
             $profile = $result["profile"];
+            // <img src=\"$upload_photo\" alt=\"Personal Picture\">
+            
             $show = "<h2> $first_name $last_name </h2>
-                    <img src=\"$upload_photo\" alt=\"Personal Picture\">
                     <ul>
                         <li>$id</li>
                         <li>Wanted job: $wanted_job</li>

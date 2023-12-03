@@ -23,7 +23,7 @@
         <div style="background-color: #f0f0f0;">
             <form action="cv_create.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-            <input type="hidden" name="login_username" value="<?php echo $user_id; ?>">
+            <input type="hidden" name="login_username" value="<?php echo $user_name; ?>">
 
                 <!-- Personal Details -->
                 <div class="card mt-3">

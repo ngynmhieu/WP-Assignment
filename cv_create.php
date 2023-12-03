@@ -4,7 +4,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){ //tao cv moi
     $user_id = $_POST['user_id'];
-    $username  = $_POST['login_username'];
+    $user_name  = $_POST['login_username'];
     include ('DBconnection.php');
     //insert table users
     
@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //tao cv moi
 
         //insert cv_link_account
         $sql = "INSERT INTO cv_link_account(user_id, login_username)
-        VALUES ('$user_id', '$username')";
+        VALUES ('$user_id', '$user_name')";
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
         } else {
