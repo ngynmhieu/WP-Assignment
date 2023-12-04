@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //tao cv moi
     
     
     if ($user_id > 0){ // xóa các cột có user_id bằng với user_id cần edit để sau đó add lại
-        $sql_delete = "DELETE FROM user_login WHERE user_id = '$user_id'";
+        $sql_delete = "DELETE FROM cv_link_account WHERE user_id = '$user_id'";
         mysqli_query($conn, $sql_delete);
         $sql_delete = "DELETE FROM user_phoneNumber WHERE user_id = '$user_id'";
         mysqli_query($conn, $sql_delete);
