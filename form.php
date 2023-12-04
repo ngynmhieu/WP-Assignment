@@ -189,6 +189,24 @@
                             </div>
                         </div>
                         <!-- Additional Experience Fields -->
+                        <div class="form-row mb-3 additionalExperienceFields" style = "display:none;">
+                            <div class="col">
+                                <label for="exp_job">Job Title:</label>
+                                <input type="text" class="form-control" name="exp_job[]">
+                            </div>
+                            <div class="col">
+                                <label for="exp_startDay">Start Day:</label>
+                                <input type="date" class="form-control" name="exp_startDay[]" >
+                            </div>
+                            <div class="col">
+                                <label for="exp_endDay">End Day:</label>
+                                <input type="date" class="form-control" name="exp_endDay[]" >
+                            </div>
+                            <div class="col">
+                                <label for="exp_description">Personal Summary:</label>
+                                <textarea name="exp_description[]" placeholder="e.g Create and implemented lesson plans based on child-led interests and curiosities." class="form-control" maxlength="200"></textarea>
+                            </div>
+                        </div>
                         <?php for ($i = 1; $i < count($exp_jobs); $i++) { ?>
                             <div class="form-row mb-3 additionalExperienceFields">
                                 <div class="col">
@@ -257,6 +275,28 @@
                         </div>
 
                         <!-- Additional Education Fields (Hidden by default) -->
+                        <div class="form-row mb-3 additionalEducationFields" style ="display:none;">
+                            <div class="col">
+                                <label for="edu_school">School:</label>
+                                <input type="text" class="form-control" name="edu_school[]" >
+                            </div>
+                            <div class="col">
+                                <label for="edu_degree">Degree:</label>
+                                <input type="text" class="form-control" name="edu_degree[]" >
+                            </div>
+                            <div class="col">
+                                <label for="edu_startDay">Start Day:</label>
+                                <input type="date" class="form-control" name="edu_startDay[]" >
+                            </div>
+                            <div class="col">
+                                <label for="edu_endDay">End Day:</label>
+                                <input type="date" class="form-control" name="edu_endDay[]" >
+                            </div>
+                            <div class="col">
+                                <label for="edu_description">Description:</label>
+                                <textarea name="edu_description[]" placeholder="e.g Graduated with honors." class="form-control" maxlength="200"></textarea>
+                            </div>
+                        </div>
                         <?php for ($i = 1; $i < count($edu_schools); $i++) { ?>
                             <div class="form-row mb-3 additionalEducationFields">
                                 <div class="col">
@@ -315,6 +355,16 @@
                         </div>
 
                         <!-- Additional Certification Fields (Hidden by default) -->
+                        <div class="form-row mb-3 additionalCertificationFields" style ="display:none;">
+                            <div class="col">
+                                <label for="certi_name">Certification Name:</label>
+                                <input type="text" class="form-control" name="certi_name[]" >
+                            </div>
+                            <div class="col">
+                                <label for="certi_description">Description:</label>
+                                <textarea name="certi_description[]" placeholder="e.g Certified Web Developer." class="form-control" maxlength="200"></textarea>
+                            </div>
+                        </div>
                         <?php for ($i = 1; $i < count($certi_names); $i++) { ?>
                             <div class="form-row mb-3 additionalCertificationFields">
                                 <div class="col">
@@ -357,6 +407,15 @@
                         </div>
 
                         <!-- Additional Skill Fields -->
+                        <div class="form-row mb-3 additionalSkillFields" style ="display:none;">
+                            <div class="col">
+                                <label for="skills">Skill:</label>
+                                <input type="text" class="form-control" name="skills[]">
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-danger" onclick="removeSkillFields(this)">Remove</button>
+                            </div>
+                        </div>
                         <?php for ($i = 1; $i < count($skills); $i++) { ?>
                             <div class="form-row mb-3 additionalSkillFields">
                                 <div class="col">
@@ -399,6 +458,12 @@
 
                         
                         <!-- Additional Languages Fields -->
+                        <div class="form-row mb-3 additionalLanguagesFields" style = "display:none;">
+                            <div class="col">
+                                <label for="languages">Language (optional):</label>
+                                <input type="text" class="form-control" name="languages[]" >
+                            </div>
+                        </div>
                         <?php for ($i = 1; $i < count($languages); $i++) { ?>
                             <div class="form-row mb-3 additionalLanguagesFields">
                                 <div class="col">
