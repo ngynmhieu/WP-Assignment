@@ -104,7 +104,7 @@
                             </div>
                             <div class="col">
                                 <label for="email">Email:</label>
-                                <input type="text" class="form-control" name="address" value="<?php echo isset($email) ? $address : ''; ?>">
+                                <input type="text" class="form-control" name="email" value="<?php echo isset($email) ? $email : ''; ?>">
                             </div>
                         </div>
 
@@ -532,7 +532,7 @@
 
             // Check specific empty inputs
             if (wantedJob.trim() === '' || firstName.trim() === '' || lastName.trim() === '' || country.trim() === '' || city.trim() === ''|| address.trim() === ''|| dateOfBirth.trim() === ''|| uploadPhoto.trim() === '') {
-                alert('Please fill in all required fields.');
+                alert('Please fill in all required fields. If you are editing the form, you also need to re-upload the Profile Photo');
                 return false;
             }
 
@@ -548,7 +548,7 @@
             !checkFields(eduDescriptionElements) ||
             !checkFields(certiNameElements) ||
             !checkFields(certiDescriptionElements)) {
-            alert("Please fill in all required fields.");
+            alert("Please fill in all required fields. If you are editing the form, you also need to re-upload the Profile Photo");
             return false;
             }
             return true;
